@@ -1,0 +1,149 @@
+<div class="container">
+  <section>
+    <div class="row">
+      <div class="col col-12 col-md-6">
+        <div class="row">
+          <div
+            *ngFor="let img of selectedProduct.images"
+            class="col col-12 mb-2"
+          >
+            <img class="img-fluid" src="assets/img/{{ img }}" />
+          </div>
+        </div>
+      </div>
+      <div class="col col-12 col-md-6">
+        <div class="row position-sticky" style="top: 0">
+          <div
+            class="col col-12 p-4"
+            style="background: #f5f6f8; font-size: 29px"
+          >
+            <section class="text-center">
+              <h5 class="fw-bold">{{ selectedProduct.designer }}</h5>
+              <h4>{{ selectedProduct.name }}</h4>
+              <h5>{{ selectedProduct.price | currency }}</h5>
+            </section>
+            <section class="mt-4">
+              <h6>Color: Black 2</h6>
+              <div>
+                <i
+                  class="far fa-circle me-2"
+                  style="
+                    background: var(--bs-emphasis-color);
+                    border-radius: 60px;
+                    font-size: 25px;
+                    border: 3.4px solid var(--bs-orange);
+                  "
+                ></i
+                ><i
+                  class="far fa-circle"
+                  style="
+                    background: var(--bs-emphasis-color);
+                    border-radius: 60px;
+                    font-size: 25px;
+                    border-style: none;
+                    border-color: var(--bs-emphasis-color);
+                  "
+                ></i>
+              </div>
+            </section>
+            <section class="mt-4">
+              <div class="accordion" role="tablist" id="accordion-1">
+                <div class="accordion-item mb-4">
+                  <h2 class="accordion-header" role="tab">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#accordion-1 .item-1"
+                      aria-expanded="false"
+                      aria-controls="accordion-1 .item-1"
+                    >
+                      Size<span class="ms-4 fw-bold"
+                        ><span
+                          style="
+                            color: rgb(33, 37, 41);
+                            background-color: rgb(255, 255, 255);
+                          "
+                          >{{ selectedSize }}</span
+                        ></span
+                      >
+                    </button>
+                  </h2>
+                  <div
+                    class="accordion-collapse collapse item-1"
+                    role="tabpanel"
+                    data-bs-parent="#accordion-1"
+                  >
+                    <div class="accordion-body">
+                      <ul class="list-group">
+                        <li
+                          class="list-group-item d-flex align-items-center p-0 size-li"
+                          style="height: 32.9px"
+                          *ngFor="let size of sizes"
+                          (click)="setSelectedSize(size)"
+                        >
+                          <span style="font-size: 12px">{{ size }}</span>
+                          <hr />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item mb-4">
+                  <h2 class="accordion-header" role="tab">
+                    <button
+                      class="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#accordion-1 .item-2"
+                      aria-expanded="false"
+                      aria-controls="accordion-1 .item-2"
+                    >
+                      Qty:<span class="ms-4 fw-bold"
+                        ><span
+                          style="
+                            color: rgb(33, 37, 41);
+                            background-color: rgb(255, 255, 255);
+                          "
+                          >{{ selectedQuantity }}</span
+                        ></span
+                      >
+                    </button>
+                  </h2>
+                  <div
+                    class="accordion-collapse collapse item-2"
+                    role="tabpanel"
+                    data-bs-parent="#accordion-1"
+                  >
+                    <div class="accordion-body">
+                      <ul class="list-group">
+                        <li
+                          class="list-group-item d-flex align-items-center p-0 size-li"
+                          style="height: 32.9px"
+                          *ngFor="let quantity of quantities"
+                          (click)="setSelectedQuantity(quantity)"
+                        >
+                          <span style="font-size: 12px">{{ quantity }}</span>
+                          <hr />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <button
+              class="btn btn-primary"
+              type="button"
+              style="width: 50%; border-radius: 0px; background: black"
+              (click)="addToCart()"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Start: Footer Multi Column -->

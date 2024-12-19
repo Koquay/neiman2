@@ -1,0 +1,169 @@
+Setup:
+1. Download node.js 
+-- Go to: https://nodejs.org/en/download/prebuilt-installer
+-- Select your operating system
+-- Select the download method: Package Manager, Prebuilt Installer, Prebuilt Binaries, Source Code
+-- Click download button and follow instructions
+
+2. Download Visual Studio Code editor
+-- https://code.visualstudio.com/download
+-- startup VSC 
+
+3. Download Git Bash (Optional: windows, maybe Mac)
+-- Git Bash provides unix terminal when using Visual Studio Code
+-- https://git-scm.com/downloads
+
+4. Create frontend Angular application:
+-- Create folder hdepotYT
+-- cd to hdepotYT
+-- Download angular: npm i @angular/cli
+-- ng new frontend
+
+5. Open app in VSC
+-- code .
+-- run ng serve
+-- clean out app.component.html
+
+7. Install bootstrap, font-awesome and jquery
+-- npm i bootstrap font-awesome jquery
+-- add bootstrap, font-awesome to architect.build.styles section of angular.json 
+-- add bootstrap, jquery to architect.build.scripts array
+
+6. create home component
+-- ng g c home --skip-tests 
+-- add html for home.component.html
+-- add path to HomeComponent in app.routes
+-- copy images to public/assets/img
+-- add public/assets to angular.json
+-- restart server
+
+XX. Create header and footer components
+-- copy header and footer code from HomeComponent to respective components
+
+
+8.x Create products page (for when image in heroCarousel is clicked)
+-- create product sidebar
+-- create product gallery
+
+10. Create server on backend
+-- npm -y (to create package.json)
+-- configure middlewares
+-- start nodemon
+-- create server routes
+-- create middleware
+-- create database connection
+-- get products using aggregate pipeline
+-- dispatch products to redux
+
+XI. Create pagination
+-- product component subscribe to product reducer
+
+XII. Create Selected Product
+-- create gallery
+-- display currentProduct
+
+XX. Create Cart
+
+XX. Create Checkout Component
+
+Xx. Add and restore data from localStorage
+-- add and restore checkout data
+-- add and restore cart data
+-- place order
+
+
+xx. Create header
+-- create search box
+-- create user login
+
+xxx. Handle errors from backend
+
+XX. Create Order component
+-- place Order
+-- create request interceptor
+
+
+10. Create top-picks component in home page
+-- ng g c product/top-picks --skip-tests --standalone
+-- import top-picks component in HomeComponent.ts
+-- display top-picks as child in HomeComponent.html
+-- put top-picks tab data in HomeReducer initialState;
+
+
+XX. Implement breadcrumbs
+
+
+
+
+
+
+XX. Add Toastr Service
+-- https://www.npmjs.com/package/ngx-toastr
+-- npm i ngx-toastr
+-- add ToastrProvide to app.config
+-- add import to styles.scss
+
+
+11. Have TopPicksComponent subscribe to redux
+
+12. Create tabs TopPicksComponent.html
+-- create top-pick-data child component
+
+13. Get top pick data from backend
+-- create ProductService 
+-- config HttpClient
+-- build client app
+-- call backend for top pick data
+
+14. Create server on backend
+-- configure middleware
+-- start nodemon
+-- server routes
+
+15. Create database connection
+    -- get products from database and return to client
+
+16. Dispatch products to product.action
+-- store products to productReducer
+
+17. TopPicksData subscribe to ProductReducer
+-- display topPickdata owl carousel in html
+
+18. User selects product
+-- create routerLink 
+-- create app.routes
+
+19. create selectProduct page
+
+20. import toastr
+-- https://www.npmjs.com/package/ngx-toastr
+
+21. Create cart
+-- create order summary child component
+
+22. Create Checkout Component
+-- create Checkout reducer
+-- implement ngModel
+-- implement error check
+
+24. Save checkout data to local storage
+
+25. Save and restore cart data to and from local storage
+
+26. User sign in/up
+-- close modal using ViewChild
+-- dispatch user to UserReducer
+-- display error message
+
+
+27, Place Order
+-- create request interceptor
+
+
+
+//TODO
+header
+user login
+Footer
+order-summary of checkout
+request interceptor

@@ -1,0 +1,21 @@
+.gallery-img-col {
+    .gallery-img-2{
+             display: none;;
+        }
+    &:hover {
+        .gallery-img {
+             display: none
+        }
+        
+         .gallery-img-2{
+             display: block;
+        }
+       
+    }
+}
+
+.gallery-img2 {
+    &:hover {
+        display: none
+    }
+}

@@ -1,0 +1,34 @@
+#signin {
+    &:hover {
+        .auth-div {
+            display: block !important;
+        }
+   }
+   
+   .auth-div {
+           display: none !important;
+            background: white;
+           
+           justify-content: center;        
+           position: absolute;
+          top: 43px;
+           // right: -41px;
+           z-index: 10;
+           color: black;
+           background: white;
+           width: 96px;
+       
+        }
+        
+       }
+   
+   #authentication {
+       cursor: pointer;
+       
+       li {      
+           &:hover {
+           background: lightgray;
+       }
+       }
+       
+   }

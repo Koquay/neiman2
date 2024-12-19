@@ -1,0 +1,21 @@
+#signin:hover .auth-div {
+  display: block !important;
+}
+#signin .auth-div {
+  display: none !important;
+  background: white;
+  justify-content: center;
+  position: absolute;
+  top: 43px;
+  z-index: 10;
+  color: black;
+  background: white;
+  width: 96px;
+}
+
+#authentication {
+  cursor: pointer;
+}
+#authentication li:hover {
+  background: lightgray;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>neiman</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Roboto.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/header.compiled.css">
+    <link rel="stylesheet" href="assets/css/mens.compiled.css">
+    <link rel="stylesheet" href="assets/css/Navbar-Centered-Links-icons.css">
+    <link rel="stylesheet" href="assets/css/selected-product.compiled.css">
+</head>
+
+<body>
+    <div class="container">
+        <form>
+            <section>
+                <div class="row">
+                    <div class="col col-12 col-lg-8">
+                        <section>
+                            <div class="row mb-4">
+                                <div class="col"><label class="form-label">First Name</label><input class="form-control fw-bold" type="text" name="firstName">
+                                    <div class="alert">
+                                        <div><small>First Name is required.</small></div>
+                                    </div>
+                                </div>
+                                <div class="col"><label class="form-label">Last Name</label><input class="form-control fw-bold" type="text" name="lastName">
+                                    <div class="alert">
+                                        <div><small>Last Name is required.</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col"><label class="form-label">Phone Number</label><input class="form-control fw-bold" type="text" name="phone">
+                                    <div class="alert">
+                                        <div><small>Phone is required.</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col"><label class="form-label">Delivery Address</label><input class="form-control fw-bold" type="text" name="address1">
+                                    <div class="alert">
+                                        <div><small>Address is required.</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col"><label class="form-label">Delivery Address Line 2 (Optional)</label><input class="form-control fw-bold" type="text" name="address2"></div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="useAsBillingAddress"><label class="form-check-label" for="formCheck-1">Use as Billing Address</label></div>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="row">
+                                <div class="col d-flex flex-column align-items-center col-12 col-md-4"><img style="width: 64px;" src="assets/img/deliverytruck.png">
+                                    <div><small class="me-2">2</small><small>Item(s)</small></div>
+                                </div>
+                                <div class="col" style="font-size: 14px;">
+                                    <h6>Select Delivery Date</h6><input class="form-control fw-bold mb-2" type="date" name="deliveryDate">
+                                    <div class="alert">
+                                        <div><small>Delivery Date&nbsp; is required.</small></div>
+                                    </div><small class="fw-normal" style="font-size: 14.3px;">We'll call or text (617) 567-7112 with your projected 4-hour delivery window one business day before your scheduled delivery date. You may also receive an optional customer service satisfaction survey.</small>
+                                    <p class="mt-4">Delivery Instructions:</p><textarea class="form-control" name="deliveryINstructions"></textarea>
+                                </div>
+                            </div>
+                        </section>
+                        <section>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-check" name=""><input class="form-check-input" type="radio" id="formCheck-2" value="PayPal" name="paymentMethod"><label class="form-check-label" for="formCheck-2" style="font-style: italic;">PayPal</label></div>
+                                    <div class="form-check" name=""><input class="form-check-input" type="radio" id="formCheck-3" value="Credit Card" name="paymentMethod" checked=""><label class="form-check-label" for="formCheck-3" style="/*font-style: italic;*/">Credit Card</label></div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="input-group"><span class="input-group-text p-0"><i class="fa fa-credit-card-alt" style="font-size: 25px;"></i></span><input class="form-control fw-bold" type="text" name="cardNumber" placeholder="Enter credit card number"></div>
+                                    <div class="alert">
+                                        <div><small>Card number is required.</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col col-12 col-lg-4"><small>Expiration Month</small><select class="form-select fw-bold" name="expMonth">
+                                        <optgroup label="Month">
+                                            <option value="12" selected="">January</option>
+                                            <option value="13">February</option>
+                                            <option value="14">March</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="alert">
+                                        <div><small>Expiration month is required.</small></div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-4"><small>Expiration Year</small><select class="form-select fw-bold" name="expYear">
+                                        <optgroup label="Year">
+                                            <option value="12" selected="">2024</option>
+                                            <option value="13">2025</option>
+                                            <option value="14">2026</option>
+                                        </optgroup>
+                                    </select>
+                                    <div class="alert">
+                                        <div><small>Expiration year is required.</small></div>
+                                    </div>
+                                </div>
+                                <div class="col col-12 col-lg-4"><small>CVV (on back)</small>
+                                    <div class="input-group"><span class="input-group-text p-0"><i class="fa fa-credit-card-alt" style="font-size: 25px;"></i></span><input class="form-control fw-bold" type="text" name="CVV" maxlength="3"></div>
+                                    <div class="alert">
+                                        <div><small>CVV is required.</small></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col col-12 col-md-4">
+                        <div>
+                            <div class="row">
+                                <div class="col col-12 px-4 px-md-5 py-4" style="border: 2px solid var(--bs-border-color-translucent);">
+                                    <h4>Your Order</h4>
+                                    <hr>
+                                    <p class="d-flex justify-content-between"><small class="fw-bold">Subtotal</small><small class="fw-bold"><strong>$4,770.40</strong></small></p>
+                                    <p class="d-flex justify-content-between"><small>Savings</small><small><strong>$477.40</strong></small></p>
+                                    <p class="d-flex justify-content-between"><small>Appliance Delivery</small><small><strong>$47.40</strong></small></p>
+                                    <p class="d-flex justify-content-between"><small>Sales Tax (determined in later step)</small><small>...</small></p>
+                                    <hr>
+                                    <p class="d-flex justify-content-between" style="font-size: 21px;"><small class="fw-bold">Total</small><small><strong>$4,800.39</strong></small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <section class="mt-5"></section><button class="btn btn-primary w-100 primary-button" type="button" style="font-size: 20px;font-weight: bold;">Place Order</button>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

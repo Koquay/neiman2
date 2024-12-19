@@ -1,0 +1,13 @@
+.gallery-img-col .gallery-img-2 {
+  display: none;
+}
+.gallery-img-col:hover .gallery-img {
+  display: none;
+}
+.gallery-img-col:hover .gallery-img-2 {
+  display: block;
+}
+
+.gallery-img2:hover {
+  display: none;
+}

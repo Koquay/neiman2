@@ -1,0 +1,211 @@
+<div class="accordion" role="tablist" id="accordion-1">
+  <div class="accordion-item">
+    <h2 class="accordion-header" role="tab">
+      <button
+        class="accordion-button fw-bold"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#accordion-1 .item-1"
+        aria-expanded="true"
+        aria-controls="accordion-1 .item-1"
+      >
+        {{ productSidebarData.categories.title }}
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse show item-1"
+      role="tabpanel"
+      data-bs-parent="#accordion-1"
+    >
+      <div class="accordion-body">
+        <ul class="list-unstyled ps-0">
+          <li
+            class="mb-2"
+            *ngFor="let category of productSidebarData.categories.categories"
+          >
+            <a
+              class="sidebar-item"
+              (click)="setCategory(category.name)"
+              style="color: initial; text-decoration: none"
+              [ngClass]="{
+                'fw-bold': categoryName === category.name
+              }"
+              >{{ category.name }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" role="tab">
+      <button
+        class="accordion-button collapsed fw-bold"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#accordion-1 .item-2"
+        aria-expanded="false"
+        aria-controls="accordion-1 .item-2"
+      >
+        {{ productSidebarData.priceFilter.title }}
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse item-2"
+      role="tabpanel"
+      data-bs-parent="#accordion-1"
+    >
+      <div class="accordion-body">
+        <ul class="list-unstyled">
+          <li
+            *ngFor="let priceRange of productSidebarData.priceFilter.priceRange"
+          >
+            <input
+              type="checkbox"
+              class="me-2"
+              [(ngModel)]="priceRange.checked"
+              (change)="updateSidebarData()"
+            />
+            <label class="form-label">{{ priceRange.label }}</label>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" role="tab">
+      <button
+        class="accordion-button collapsed fw-bold"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#accordion-1 .item-3"
+        aria-expanded="false"
+        aria-controls="accordion-1 .item-3"
+      >
+        Color
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse item-3"
+      role="tabpanel"
+      data-bs-parent="#accordion-1"
+    >
+      <div class="accordion-body">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: var(--bs-emphasis-color)"
+              ></i
+              ><span>Black</span></a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: brown"
+              ></i
+              ><span>Brown</span></a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: gray"
+              ></i
+              ><span>Gray</span></a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: blue"
+              ></i
+              ><span>Blue</span></a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: purple"
+              ></i
+              ><span>Purple</span></a
+            >
+          </li>
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><i
+                class="far fa-circle me-2"
+                style="color: initial; background: red"
+              ></i
+              ><span>Red</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" role="tab">
+      <button
+        class="accordion-button collapsed fw-bold"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#accordion-1 .item-4"
+        aria-expanded="false"
+        aria-controls="accordion-1 .item-4"
+      >
+        Size
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse item-4"
+      role="tabpanel"
+      data-bs-parent="#accordion-1"
+    >
+      <div class="accordion-body">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              ><span style="color: initial">Under construction</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" role="tab">
+      <button
+        class="accordion-button collapsed fw-bold"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#accordion-1 .item-5"
+        aria-expanded="false"
+        aria-controls="accordion-1 .item-5"
+      >
+        Type
+      </button>
+    </h2>
+    <div
+      class="accordion-collapse collapse item-5"
+      role="tabpanel"
+      data-bs-parent="#accordion-1"
+    >
+      <div class="accordion-body">
+        <ul class="list-unstyled ps-0">
+          <li class="mb-2">
+            <a href="#" style="color: initial; text-decoration: none"
+              >Under construction</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
