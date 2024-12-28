@@ -1,0 +1,206 @@
+<div class="container d-flex justify-content-center mt-5">
+  @if(action === 'signup') {
+  <section id="signup" class="p-4" style="border: 1px solid #8b34ab">
+    <h4>Sign up</h4>
+    <form #signupForm="ngForm" class="">
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">First Name:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="firstName"
+            required=""
+            [(ngModel)]="authData.firstName"
+            #firstName="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div
+            *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+          >
+            <div *ngIf="firstName.hasError('required')">
+              <small class="red">First Name is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">Last Name:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="lastName"
+            required=""
+            [(ngModel)]="authData.lastName"
+            #lastName="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <div *ngIf="lastName.hasError('required')">
+              <small class="red">Last Name is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">Email:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="email"
+            required=""
+            [(ngModel)]="authData.email"
+            name="email"
+            #email="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.hasError('required')">
+              <small class="red">Email is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">Password:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="password"
+            required=""
+            [(ngModel)]="authData.password"
+            #password="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.hasError('required')">
+              <small class="red">Password is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <span class="me-2">Have an account?</span
+          ><a
+            class="fw-bold"
+            style="color: var(--bs-link-hover-color) !important"
+            [routerLink]="['/authentication', 'signin']"
+            >Sign In</a
+          >
+        </div>
+      </div>
+      <div class="mt-4">
+        <button
+          class="btn btn-light me-4"
+          type="button"
+          style="border: 2px solid #8b34ab; color: #8b34ab"
+        >
+          Close</button
+        ><button
+          class="btn btn-primary fw-bold"
+          type="button"
+          style="background: #8b34ab"
+          [disabled]="!signupForm.valid"
+          (click)="signup()"
+        >
+          Sign Up
+        </button>
+      </div>
+    </form>
+  </section>
+  }
+</div>
+
+<div class="container d-flex justify-content-center mt-5">
+  @if(action === 'signin') {
+  <section id="signup" class="p-4" style="border: 1px solid #8b34ab">
+    <h4>Sign in</h4>
+    <form #signinForm="ngForm" class="">
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">Email:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="email"
+            required=""
+            [(ngModel)]="authData.email"
+            name="email"
+            #email="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.hasError('required')">
+              <small class="red">Email is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex mb-2">
+        <div class="col col-4 col-md-3">
+          <label class="col-form-label">Password:</label>
+        </div>
+        <div class="col col-8">
+          <input
+            class="form-control"
+            type="text"
+            name="password"
+            required=""
+            [(ngModel)]="authData.password"
+            #password="ngModel"
+            style="border-width: 2px; border-style: solid"
+          />
+          <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.hasError('required')">
+              <small class="red">Password is required.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <span class="me-2">Don't have an account?</span
+          ><a
+            class="fw-bold"
+            style="color: var(--bs-link-hover-color) !important"
+            [routerLink]="['/authentication', 'signup']"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+      <div class="mt-4">
+        <button
+          class="btn btn-light me-4"
+          type="button"
+          style="border: 2px solid #8b34ab; color: #8b34ab"
+        >
+          Close</button
+        ><button
+          class="btn btn-primary fw-bold"
+          type="button"
+          style="background: #8b34ab"
+          [disabled]="!signinForm.valid"
+          (click)="signin()"
+        >
+          Sign In
+        </button>
+      </div>
+    </form>
+  </section>
+  }
+</div>

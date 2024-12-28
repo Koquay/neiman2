@@ -6,17 +6,17 @@
     <img
       class="gallery-img"
       src="assets/img/{{ product.images[0] }}"
-      [routerLink]="['/selected-product', product._id]"
+      (click)="setSelectedProduct(product)"
     />
     <img
       class="gallery-img-2"
       src="assets/img/{{ product.images[1] }}"
-      [routerLink]="['/selected-product', product._id]"
+      (click)="setSelectedProduct(product)"
     />
     <h5
       class="mb-0"
       style="font-size: 15px; font-weight: bolder"
-      [routerLink]="['/selected-product', product._id]"
+      (click)="setSelectedProduct(product)"
     >
       {{ product.designer }}
     </h5>

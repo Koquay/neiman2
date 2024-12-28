@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { ProductSidebarData } from '../product-sidebar/product-sidebar.service';
-import { catchError, tap } from 'rxjs';
+import { catchError, ReplaySubject, Subject, tap } from 'rxjs';
 import { ProductModel } from '../product.model';
 
 @Injectable({
@@ -11,15 +11,23 @@ export class ProductGalleryService {
   public productSignal = signal<{
     products: ProductModel[];
     productCount: number;
-  }>({ products: [], productCount: 0 });
+    selectedProduct: ProductModel;
+  }>({ products: [], productCount: 0, selectedProduct: new ProductModel() });
 
   private httpClient = inject(HttpClient);
+  public selectedProductSubject = new ReplaySubject<ProductModel>(1);
+  selectedProductSubject$ = this.selectedProductSubject.asObservable();
   private url = '/api/product';
 
-  public getSelectedProduct = (productId:string) => {
+  // public getSelectedProduct = (productId: string) => {
 
-    let selectedProduct:ProductModel = (this.productSignal().products.find(product => product._id === productId) as ProductModel);
-    return selectedProduct
+  //   let selectedProduct: ProductModel = (this.productSignal().products.find(product => product._id === productId) as ProductModel);
+  //   return selectedProduct
+  // }
+
+  public setSelectedProduct = (selectedProduct: ProductModel) => {
+    // this.selectedProductSubject.next(selectedProduct);
+    this.productSignal.set({ ...this.productSignal(), selectedProduct })
   }
 
   public getProducts = (productSidebarData: ProductSidebarData) => {
@@ -34,12 +42,12 @@ export class ProductGalleryService {
         params,
       })
       .pipe(
-        tap((productData) => {
-          console.log('productData', productData);
-          this.productSignal.set({ ...productData });
-          console.log('ProductService.productSignal', this.productSignal())
-          // this.productCount = this.productSignal().productCount;
-        }),
+        // tap((productData) => {
+        //   console.log('productData', productData);
+        //   this.productSignal.set({ ...productData });
+        //   console.log('ProductService.productSignal', this.productSignal())
+        //   // this.productCount = this.productSignal().productCount;
+        // }),
         catchError((error) => {
           //console.log('error', error);
           // this.toastr.error('Problem getting products', 'Get Products')

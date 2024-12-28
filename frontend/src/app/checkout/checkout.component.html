@@ -1,0 +1,334 @@
+<div class="container">
+  <form>
+    <section>
+      <div class="row">
+        <div class="col col-12 col-lg-8">
+          <section>
+            <div class="row mb-4">
+              <div class="col">
+                <label class="form-label">First Name</label>
+                <input
+                  class="form-control fw-bold"
+                  type="text"
+                  name="firstName"
+                  [(ngModel)]="checkoutData.deliveryAddress.firstName"
+                  required
+                  #firstName="ngModel"
+                  (change)="saveCheckoutData()"
+                />
+                <div
+                  *ngIf="
+                    firstName.invalid && (firstName.dirty || firstName.touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="firstName.hasError('required')">
+                    <small>First Name is required.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label">Last Name</label>
+                <input
+                  class="form-control fw-bold"
+                  type="text"
+                  name="lastName"
+                  [(ngModel)]="checkoutData.deliveryAddress.lastName"
+                  required
+                  #lastName="ngModel"
+                  (change)="saveCheckoutData()"
+                />
+                <div
+                  *ngIf="
+                    lastName.invalid && (lastName.dirty || lastName.touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="lastName.hasError('required')">
+                    <small>Last Name is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label class="form-label">Phone Number</label>
+                <input
+                  class="form-control fw-bold"
+                  type="text"
+                  name="phone"
+                  [(ngModel)]="checkoutData.deliveryAddress.phone"
+                  required
+                  #phone="ngModel"
+                  (change)="saveCheckoutData()"
+                />
+                <div
+                  *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                  class="alert"
+                >
+                  <div *ngIf="phone.hasError('required')">
+                    <small>Phone is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label class="form-label">Delivery Address</label>
+                <input
+                  class="form-control fw-bold"
+                  type="text"
+                  name="address1"
+                  [(ngModel)]="checkoutData.deliveryAddress.address1"
+                  required
+                  #address1="ngModel"
+                  (change)="saveCheckoutData()"
+                />
+                <div
+                  *ngIf="
+                    address1.invalid && (address1.dirty || address1.touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="address1.hasError('required')">
+                    <small>Delivery Address is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <label class="form-label"
+                  >Delivery Address Line 2 (Optional)</label
+                >
+                <input
+                  class="form-control fw-bold"
+                  type="text"
+                  name="address2"
+                  [(ngModel)]="checkoutData.deliveryAddress.address2"
+                  required
+                  #address2="ngModel"
+                  (change)="saveCheckoutData()"
+                />
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="formCheck-1"
+                    name="useAsBillingAddress"
+                    [(ngModel)]="
+                      checkoutData.deliveryAddress.useAsBillingAddress
+                    "
+                    required
+                    #useAsBillingAddress="ngModel"
+                    (change)="saveCheckoutData()"
+                  />
+                  <label class="form-check-label" for="formCheck-1"
+                    >Use as Billing Address</label
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- <section>
+            <div class="row">
+              <div
+                class="col d-flex flex-column align-items-center col-12 col-md-4"
+              >
+                <img style="width: 64px" src="assets/img/deliverytruck.png" />
+                <div><small class="me-2">2</small><small>Item(s)</small></div>
+              </div>
+              <div class="col" style="font-size: 14px">
+                <h6>Select Delivery Date</h6>
+                <input
+                  class="form-control fw-bold mb-2"
+                  type="date"
+                  name="deliveryDate"
+                />
+                <div class="alert">
+                  <div><small>Delivery Date&nbsp; is required.</small></div>
+                </div>
+                <small class="fw-normal" style="font-size: 14.3px"
+                  >We'll call or text (617) 567-7112 with your projected 4-hour
+                  delivery window one business day before your scheduled
+                  delivery date. You may also receive an optional customer
+                  service satisfaction survey.</small
+                >
+                <p class="mt-4">Delivery Instructions:</p>
+                <textarea
+                  class="form-control"
+                  name="deliveryINstructions"
+                ></textarea>
+              </div>
+            </div>
+          </section> -->
+          <section>
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-check" name="">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="formCheck-2"
+                    value="PayPal"
+                    name="paymentMethod"
+                    [(ngModel)]="checkoutData.paymentMethod.paymentType"
+                    (change)="saveCheckoutData()"
+                  />
+                  <label
+                    class="form-check-label"
+                    for="formCheck-2"
+                    style="font-style: italic"
+                    >PayPal</label
+                  >
+                </div>
+                <div class="form-check" name="">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    id="formCheck-3"
+                    value="Credit Card"
+                    name="paymentMethod"
+                    [(ngModel)]="checkoutData.paymentMethod.paymentType"
+                    (change)="saveCheckoutData()"
+                  />
+                  <label class="form-check-label" for="formCheck-3"
+                    >Credit Card</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col">
+                <div class="input-group">
+                  <span class="input-group-text p-0">
+                    <i class="fa fa-credit-card-alt" style="font-size: 25px">
+                    </i>
+                  </span>
+                  <input
+                    class="form-control fw-bold"
+                    type="text"
+                    name="cardNumber"
+                    required
+                    placeholder="Enter credit card number"
+                    [(ngModel)]="checkoutData.paymentMethod.cardNumber"
+                    #cardNumber="ngModel"
+                    (change)="saveCheckoutData()"
+                  />
+                </div>
+                <div
+                  *ngIf="
+                    cardNumber.invalid &&
+                    (cardNumber.dirty || cardNumber.touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="cardNumber.hasError('required')">
+                    <small>Card Number is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col col-12 col-lg-4">
+                <small>Expiration Month</small>
+                <select
+                  class="form-select fw-bold"
+                  name="expMonth"
+                  required
+                  [(ngModel)]="checkoutData.paymentMethod.expMonth"
+                  #expMonth="ngModel"
+                  (change)="saveCheckoutData()"
+                >
+                  <optgroup label="Month">
+                    <option *ngFor="let expMonth of expirationMonths">
+                      {{ expMonth }}
+                    </option>
+                  </optgroup>
+                </select>
+                <div
+                  *ngIf="
+                    expMonth.invalid && (expMonth.dirty || expMonth.touched)
+                  "
+                  class="alert"
+                >
+                  <div *ngIf="expMonth.hasError('required')">
+                    <small>Expiration Month is required.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-12 col-lg-4">
+                <small>Expiration Year</small>
+                <select
+                  class="form-select fw-bold"
+                  readonly=""
+                  name="expYear"
+                  required
+                  [(ngModel)]="checkoutData.paymentMethod.expYear"
+                  #expYear="ngModel"
+                  (change)="saveCheckoutData()"
+                >
+                  <optgroup label="Year">
+                    <option *ngFor="let expYear of expirationYears">
+                      {{ expYear }}
+                    </option>
+                  </optgroup>
+                </select>
+                <div
+                  *ngIf="expYear.invalid && (expYear.dirty || expYear.touched)"
+                  class="alert"
+                >
+                  <div *ngIf="expYear.hasError('required')">
+                    <small>Expiration Year is required.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col col-12 col-lg-4">
+                <small>CVV (on back)</small>
+                <div class="input-group">
+                  <span class="input-group-text p-0">
+                    <i class="fa fa-credit-card-alt" style="font-size: 25px">
+                    </i>
+                  </span>
+                  <input
+                    class="form-control fw-bold"
+                    type="text"
+                    maxlength="3"
+                    name="CVV"
+                    required
+                    [(ngModel)]="checkoutData.paymentMethod.CVV"
+                    #CVV="ngModel"
+                    (change)="saveCheckoutData()"
+                    placeholder="Enter CVV"
+                  />
+                </div>
+                <div
+                  *ngIf="CVV.invalid && (CVV.dirty || CVV.touched)"
+                  class="alert"
+                >
+                  <div *ngIf="CVV.hasError('required')">
+                    <small>CVV is required.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="col col-12 col-md-4">
+          <app-cart-summary />
+          <button
+            class="btn btn-primary w-100 primary-button mt-3"
+            type="button"
+            style="font-size: 20px; font-weight: bold"
+          >
+            Place Order
+          </button>
+        </div>
+      </div>
+    </section>
+  </form>
+</div>

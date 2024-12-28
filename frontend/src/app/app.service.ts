@@ -1,5 +1,6 @@
 import { Injectable, signal } from '@angular/core';
 import { ProductModel } from './products/product.model';
+import { CheckoutModel } from './checkout/checkout.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,14 @@ export class AppService {
     neiman: {
       selectedProduct: ProductModel;
       cart: ProductModel[];
-      // checkoutData: CheckoutModel;
+      checkoutData: CheckoutModel;
       // user: AuthenticationModel;
     };
   }>({
     neiman: {
       selectedProduct: new ProductModel(),
       cart: [],
-      // checkoutData: new CheckoutModel(),
+      checkoutData: new CheckoutModel(),
       // user: new AuthenticationModel(),
     },
   });

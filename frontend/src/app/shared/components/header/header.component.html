@@ -2,7 +2,7 @@
   <!-- Start: Navbar Centered Links -->
   <nav class="navbar navbar-expand-md bg-body py-3">
     <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="#">
+      <a class="navbar-brand d-flex align-items-center">
         <span
           class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon"
         >
@@ -71,7 +71,7 @@
             </div>
           </li>
         </ul>
-        <a class="me-2 position-relative" href="#">
+        <a class="me-2 position-relative">
           <div
             class="d-flex flex-column justify-content-center align-items-center align-items-xl-center"
             id="signin"
@@ -93,7 +93,11 @@
             <div class="auth-div px-3 pt-2">
               <ul id="authentication" class="list-unstyled">
                 <li class="mb-2">Sign in</li>
-                <li class="mb-2">Sign up</li>
+                @if(!user?.token) {
+                <li class="mb-2" [routerLink]="['/authentication', 'signup']">
+                  Sign up
+                </li>
+                }
                 <li>Sign out</li>
               </ul>
             </div>

@@ -1,1 +1,105 @@
-<p>cart works!</p>
+<div class="container">
+  <h3 class="fw-bold">Cart</h3>
+  <section>
+    <div class="row justify-content-lg-between">
+      <div class="col col-12 col-md-8">
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered">
+            <tbody>
+              <tr *ngFor="let product of cart">
+                <td>
+                  <img
+                    class="img-fluid"
+                    src="assets/img/{{ product.images[0] }}"
+                    style="width: 177.1px"
+                  />
+                </td>
+                <td>
+                  <h6 class="mb-2 fw-bold">{{ product.designer }}</h6>
+                  <p>{{ product.name }}</p>
+                  <p>Color: New Vicuna</p>
+                  <p>Size: {{ product.size }}</p>
+                  <p>Quantity: {{ product.quantity }}</p>
+                </td>
+                <td class="text-end" style="text-align: right">
+                  <div class="mb-3">
+                    <h4 class="d-inline-block">
+                      {{
+                        product.price
+                          | discountPrice : product.quantity : product.discount
+                      }}
+                    </h4>
+                    <small
+                      class="d-inline-block ms-2 text-decoration-line-through"
+                      >{{ product.price | currency }}</small
+                    >
+                  </div>
+                  <div
+                    class="d-sm-flex justify-content-sm-end mb-3"
+                    style="text-align: right"
+                  >
+                    <div class="input-group text-center" style="width: 109.3px">
+                      <button
+                        class="btn btn-light btn-sm"
+                        type="button"
+                        style="border-color: #7b189f"
+                        (click)="
+                          adjustQuantity(product._id, product.quantity, '-')
+                        "
+                      >
+                        <i
+                          class="fa fa-minus"
+                          style="color: #7b189f"
+                        ></i></button
+                      ><input
+                        class="form-control d-flex d-md-flex text-center"
+                        type="text"
+                        value="{{ product.quantity }}"
+                        readonly=""
+                        style="border-color: #7b189f"
+                      /><button
+                        class="btn btn-light btn-sm"
+                        type="button"
+                        style="border-color: #7b189f"
+                        (click)="
+                          adjustQuantity(product._id, product.quantity, '+')
+                        "
+                      >
+                        <i class="fa fa-plus" style="color: #7b189f"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <a class="d-block" href="#" style="color: #7b189f"
+                      ><i class="fa fa-download"></i>&nbsp;Save for later</a
+                    ><a
+                      class="d-block"
+                      style="color: red"
+                      (click)="removeFromCart(product._id)"
+                      ><i class="fa fa-trash"></i>&nbsp;Remove</a
+                    >
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col col-12 col-md-4 col-lg-3 py-2">
+        <app-cart-summary />
+
+        <button
+          class="btn btn-light w-100 my-3 fw-bold"
+          type="button"
+          style="
+            background: var(--bs-btn-disabled-color);
+            color: var(--bs-btn-bg);
+          "
+          [routerLink]="['/checkout']"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

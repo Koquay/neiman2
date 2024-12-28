@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col col-12 py-2" style="border: 1.4px solid #8b34ab">
+    <h5 class="fw-bold d-inline-block me-2">Cart Summary</h5>
+    <span>({{ cart.length }})</span>
+    <div class="table-responsive">
+      <table class="table table-sm">
+        <tbody>
+          <tr>
+            <td>Subtotal ({{ cart.length }})</td>
+            <td class="text-end">{{ getCartSubtotal() | currency }}</td>
+          </tr>
+          <tr>
+            <td>Delivery</td>
+            <td class="text-end">FREE</td>
+          </tr>
+          <tr>
+            <td>Estimated Tax</td>
+            <td class="text-end">{{ getTax() }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="fw-bold" style="font-size: 18px">
+            <td>Total</td>
+            <td class="text-end">{{ getCartTotal() }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

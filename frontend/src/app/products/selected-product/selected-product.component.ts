@@ -1,11 +1,10 @@
 import { Component, effect, inject, signal, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ProductModel } from '../product.model';
 import { SelectedProductService } from './selected-product.service';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
-import { Subject } from 'rxjs';
+import { ProductGalleryService } from '../product-gallery/product-gallery.service';
 
 @Component({
   selector: 'app-selected-product',
@@ -17,8 +16,8 @@ import { Subject } from 'rxjs';
   styleUrl: './selected-product.component.scss'
 })
 export class SelectedProductComponent {
-  private activatedRoute = inject(ActivatedRoute);
   private selectedProductService = inject(SelectedProductService)
+  private productGalleryService = inject(ProductGalleryService)
   private cartService = inject(CartService)
   private toastr = inject(ToastrService);
   public selectedProduct = new ProductModel();
@@ -27,27 +26,20 @@ export class SelectedProductComponent {
   public selectedSize = 'NONE';
   public selectedQuantity = 0;
 
-  public selectedProductSubject = new Subject();
-
   private selectedProductEffect = effect(() => {
     this.selectedProduct = this.selectedProductService.selectedProductSignal();
     console.log('SelectedProductComponent.selectedProductXXX', this.selectedProduct)
   })
 
-  ngOnInit() {
-    this.setSelectedProduct()
-  }
+  private productGalleryEffect = effect(() => {
+    const selectedProduct = this.productGalleryService.productSignal().selectedProduct;
+    if (selectedProduct._id) {
+      this.selectedProduct = selectedProduct;
+      this.selectedProductService.setSelectedProduct(selectedProduct)
+      console.log('SelectedProductComponent.selectedProductZZZ', this.selectedProduct)
+    }
 
-  private setSelectedProduct = () => {
-    this.selectedProductSubject.subscribe(() => {
-      const productId = this.activatedRoute.snapshot.paramMap.get('productId')
-      console.log('selectedProductSubject.productId', productId)
-    })
-    const productId = this.activatedRoute.snapshot.paramMap.get('productId')
-    console.log('productId', productId)
-
-    this.selectedProductService.setSelectedProduct(productId as string)
-  }
+  })
 
   public setSelectedSize = (size: string) => {
     this.selectedSize = size;
@@ -66,7 +58,6 @@ export class SelectedProductComponent {
       return;
     }
     if (this.selectedQuantity === 0) {
-
       this.toastr.warning("Please select a quantity. ", "Warning");
       return;
     }
