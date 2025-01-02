@@ -2,6 +2,25 @@ require("./product.model");
 const mongoose = require('mongoose');
 const Product = require("mongoose").model("Product");
 
+exports.searchProducts = async (req, res) => {
+  console.log("ProductsServicer.searchProducts");
+  
+    const {searchField} = req.query;
+    console.log("searchField", searchField);
+
+    try {
+      const searchedProducts = await Product.find({
+        name: { $regex: searchField, $options: "i" },
+      });
+  
+      console.log(searchedProducts);
+      res.json(searchedProducts);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Problem searching for products.");
+    }
+}
+
 exports.getProduct = async (req, res) => {
   console.log('req.params.productId', req.params.productId)
   const productId = req.params.productId.trim();

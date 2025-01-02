@@ -59,4 +59,9 @@ export class CheckoutComponent {
     console.log('CheckoutComponent.checkoutData', this.checkoutData)
     this.checkoutService.saveCheckoutData(this.checkoutData)
   }
+
+  public placeOrder = () => {
+    console.log('checkoutData', this.checkoutData)
+    this.checkoutService.placeOrder();
+  }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #checkoutForm="ngForm">
     <section>
       <div class="row">
         <div class="col col-12 col-lg-8">
@@ -106,7 +106,6 @@
                   type="text"
                   name="address2"
                   [(ngModel)]="checkoutData.deliveryAddress.address2"
-                  required
                   #address2="ngModel"
                   (change)="saveCheckoutData()"
                 />
@@ -134,38 +133,7 @@
               </div>
             </div>
           </section>
-          <!-- <section>
-            <div class="row">
-              <div
-                class="col d-flex flex-column align-items-center col-12 col-md-4"
-              >
-                <img style="width: 64px" src="assets/img/deliverytruck.png" />
-                <div><small class="me-2">2</small><small>Item(s)</small></div>
-              </div>
-              <div class="col" style="font-size: 14px">
-                <h6>Select Delivery Date</h6>
-                <input
-                  class="form-control fw-bold mb-2"
-                  type="date"
-                  name="deliveryDate"
-                />
-                <div class="alert">
-                  <div><small>Delivery Date&nbsp; is required.</small></div>
-                </div>
-                <small class="fw-normal" style="font-size: 14.3px"
-                  >We'll call or text (617) 567-7112 with your projected 4-hour
-                  delivery window one business day before your scheduled
-                  delivery date. You may also receive an optional customer
-                  service satisfaction survey.</small
-                >
-                <p class="mt-4">Delivery Instructions:</p>
-                <textarea
-                  class="form-control"
-                  name="deliveryINstructions"
-                ></textarea>
-              </div>
-            </div>
-          </section> -->
+
           <section>
             <div class="row mb-4">
               <div class="col">
@@ -324,6 +292,8 @@
             class="btn btn-primary w-100 primary-button mt-3"
             type="button"
             style="font-size: 20px; font-weight: bold"
+            [disabled]="!checkoutForm.valid"
+            (click)="placeOrder()"
           >
             Place Order
           </button>

@@ -51,4 +51,10 @@ export class AuthenticationService {
       })
     )
   }
+
+  public signout = () => {
+    this.authSignal.set(new AuthenticationModel())
+    saveStateToLocalStorage({ user: this.authSignal() })
+
+  }
 }

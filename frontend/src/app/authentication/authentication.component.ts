@@ -48,7 +48,7 @@ export class AuthenticationComponent implements OnInit {
       this.authenticationSignal.set({ ...this.authData, ...user })
       console.log('authenticationSignal', this.authenticationSignal())
       this.toastr.info("Welcome " + user.firstName, "")
-      // this.goBackToCallingPage()
+      this.returnToCallingPage()
     })
   }
 
@@ -58,7 +58,25 @@ export class AuthenticationComponent implements OnInit {
       this.authenticationSignal.set({ ...this.authData, ...user })
       console.log('authenticationSignal', this.authenticationSignal())
       this.toastr.info("Welcome " + user.firstName, "")
-      // this.goBackToCallingPage()
+      this.returnToCallingPage()
     })
+  }
+
+  private returnToCallingPage = () => {
+    const breadcrumbs = JSON.parse(localStorage.getItem('neiman') as string).breadcrumbs;
+    let previousUrl = '';
+
+    //console.log('AuthenticationComponent.breadcrumbs', breadcrumbs)
+    if (breadcrumbs.length > 2) {
+      previousUrl = breadcrumbs[breadcrumbs.length - 2].url;
+
+      if (breadcrumbs[breadcrumbs.length - 2].label === 'authentication') {
+        previousUrl = breadcrumbs[breadcrumbs.length - 3].url;
+      }
+    } else {
+      previousUrl = breadcrumbs[0].url
+    }
+
+    this.router.navigateByUrl(previousUrl);
   }
 }
